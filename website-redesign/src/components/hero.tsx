@@ -28,13 +28,17 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 flex h-full items-center">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl text-left text-white">
+          <div className="max-w-5xl text-left text-white">
             <p className="mb-6 text-sm font-light tracking-[0.3em] uppercase opacity-90">
               Elevate Your Journey
             </p>
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light leading-tight mb-12">
-              Luxury Private Jet Charters
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-light leading-tight mb-8 max-w-3xl ">
+              Uncompromising Service
+              At Competitive Light Jet Rates
             </h1>
+            <p className="text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl opacity-90">
+              Founded in 2003, we specialize in Light Jet Charters. Based out of Burlington, NC, our aircraft serve the greater Eastern US.
+            </p>
             <div className="flex flex-col sm:flex-row items-start gap-4">
               <Button
                 size="lg"
