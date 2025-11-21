@@ -27,12 +27,12 @@ const destinations = [
   {
     name: "The Hamptons",
     location: "New York",
-    image: "hamptons.webp",
+    image: "destinations/hamptons.webp",
   },
   {
     name: "Turks and Caicos",
     location: "Caribbean",
-    image: "turks.jpg",
+    image: "destinations/turks.jpg",
   },
   {
     name: "Chicago",
@@ -42,7 +42,7 @@ const destinations = [
   {
     name: "Nashville",
     location: "Tennessee",
-    image: "nashville.avif",
+    image: "destinations/nashville.avif",
   },
 ];
 

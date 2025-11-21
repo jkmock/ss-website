@@ -88,7 +88,7 @@ function JetCard({ jet, index }: { jet: typeof fleet[0]; index: number }) {
         {/* Subtle darkening behind text */}
         <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-black/40 to-transparent -z-10" />
         {/* Aircraft Type */}
-        <h3 className={`font-serif text-4xl md:text-5xl font-light text-white mb-6 transition-all duration-700 delay-100 ${
+        <h3 className={`font-serif text-4xl md:text-5xl font-light text-white mb-6 lining-nums transition-all duration-700 delay-100 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
         }`}>
           {jet.name}

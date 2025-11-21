@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,8 +14,11 @@ import { useEffect, useState } from "react";
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -25,23 +29,29 @@ export function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-colors duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-md border-b"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-md shadow-md border-border"
+          : "bg-transparent border-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link
-              href="/"
-              className={`text-2xl font-serif font-bold tracking-wider transition-colors ${
-                scrolled ? "text-foreground" : "text-white"
-              }`}
-            >
-              SkySouth
+            <Link href="/" className="block">
+              <Image
+                src={
+                  scrolled
+                    ? "/logos/ss-logo-gray-navy-left.png"
+                    : "/logos/ss-logo-white-navy-left.png"
+                }
+                alt="SkySouth"
+                width={180}
+                height={60}
+                priority
+                className="h-12 w-auto transition-opacity duration-300"
+              />
             </Link>
           </div>
 
@@ -91,32 +101,34 @@ export function Navigation() {
 
           {/* Mobile menu button */}
           <div className="md:hidden">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className={scrolled ? "" : "text-white hover:text-white"}
-                >
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuItem asChild>
-                  <Link href="#experiences">Experiences</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="#fleet">Fleet</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="#destinations">Destinations</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="#contact">Contact</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {mounted && (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className={scrolled ? "" : "text-white hover:text-white"}
+                  >
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Open menu</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem asChild>
+                    <Link href="#experiences">Experiences</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="#fleet">Fleet</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="#destinations">Destinations</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="#contact">Contact</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
         </div>
       </div>

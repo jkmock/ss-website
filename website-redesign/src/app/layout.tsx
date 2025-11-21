@@ -15,8 +15,11 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js + Tailwind + shadcn/ui Template",
-  description: "A modern website template built with Next.js, Tailwind CSS, and shadcn/ui",
+  title: "SkySouth",
+  description: "Luxury private jet charter services",
+  icons: {
+    icon: "/favicon/favicon-square-navy.png",
+  },
 };
 
 export default function RootLayout({
